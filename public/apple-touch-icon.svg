@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" fill="#0d0f0b"/>
+  <!-- Hexagon -->
+  <polygon points="90,12 162,52 162,128 90,168 18,128 18,52"
+           fill="#141710" stroke="#4a5c38" stroke-width="4"/>
+  <!-- Anchor ring -->
+  <circle cx="90" cy="50" r="12" fill="none" stroke="#c8a84b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Anchor stock -->
+  <line x1="52" y1="76" x2="128" y2="76" stroke="#c8a84b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Anchor shank -->
+  <line x1="90" y1="62" x2="90" y2="138" stroke="#c8a84b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Anchor left fluke -->
+  <path d="M 90 138 Q 52 138 52 108" fill="none" stroke="#c8a84b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Anchor right fluke -->
+  <path d="M 90 138 Q 128 138 128 108" fill="none" stroke="#c8a84b" stroke-width="6" stroke-linecap="round"/>
+</svg>

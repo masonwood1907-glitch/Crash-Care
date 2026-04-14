@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── RESET & BASE ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: #0d0f0b;
+  color: #c8cfc0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS smooth scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── SCROLLBAR STYLING ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0f0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3025;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5c38;
+}
+
+/* ─── FORM ELEMENTS ────────────────────────────────────────────────────────── */
+input[type="date"],
+input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(0.5) hue-rotate(60deg);
+  cursor: pointer;
+}
+
+textarea {
+  font-family: 'Barlow', sans-serif;
+  resize: vertical;
+}
+
+button {
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ─── SAFE AREA UTILITIES ──────────────────────────────────────────────────── */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ─── ANIMATIONS ───────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ─── FONT UTILITIES ───────────────────────────────────────────────────────── */
+.font-mono {
+  font-family: 'Share Tech Mono', monospace;
+}
+.font-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.font-sans {
+  font-family: 'Barlow', sans-serif;
+}

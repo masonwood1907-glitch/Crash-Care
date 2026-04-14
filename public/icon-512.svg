@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0d0f0b"/>
+  <!-- Hexagon -->
+  <polygon points="256,38 458,148 458,364 256,474 54,364 54,148"
+           fill="#141710" stroke="#4a5c38" stroke-width="10"/>
+  <!-- Inner hex ring -->
+  <polygon points="256,72 420,164 420,348 256,440 92,348 92,164"
+           fill="none" stroke="#2a3025" stroke-width="2"/>
+  <!-- Anchor ring -->
+  <circle cx="256" cy="146" r="34" fill="none" stroke="#c8a84b" stroke-width="18" stroke-linecap="round"/>
+  <!-- Anchor stock (crossbar) -->
+  <line x1="150" y1="218" x2="362" y2="218" stroke="#c8a84b" stroke-width="18" stroke-linecap="round"/>
+  <!-- Anchor shank -->
+  <line x1="256" y1="180" x2="256" y2="394" stroke="#c8a84b" stroke-width="18" stroke-linecap="round"/>
+  <!-- Anchor left fluke -->
+  <path d="M 256 394 Q 150 394 150 306" fill="none" stroke="#c8a84b" stroke-width="18" stroke-linecap="round"/>
+  <!-- Anchor right fluke -->
+  <path d="M 256 394 Q 362 394 362 306" fill="none" stroke="#c8a84b" stroke-width="18" stroke-linecap="round"/>
+  <!-- USNA text -->
+  <text x="256" y="468" text-anchor="middle" font-family="monospace" font-size="28"
+        fill="#4a5c38" letter-spacing="8" font-weight="bold">USNA</text>
+</svg>
