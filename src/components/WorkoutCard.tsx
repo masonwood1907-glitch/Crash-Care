@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { Workout, TrainingLog } from '../types';
 import { TYPE_COLORS, TYPE_BG, DAY_LABELS } from '../data/workouts';
 import type { DayKey } from '../types';
 import { ProgressBar } from './ProgressBar';
 import { Timer } from './Timer';
+import { IntervalTimer } from './IntervalTimer';
+import { parseIntervals } from '../utils/parseIntervals';
 
 interface WorkoutCardProps {
   week: number;
@@ -32,12 +35,15 @@ export function WorkoutCard({
   const notes = entry.notes ?? '';
   const completedSets = entry.completedSets ?? {};
 
-  const [showNotes, setShowNotes] = useState(false);
-  const [noteText, setNoteText] = useState(notes);
-
   const color = TYPE_COLORS[workout.type];
   const bg = TYPE_BG[workout.type];
   const isRest = workout.type === 'rest';
+
+  const [showNotes, setShowNotes] = useState(false);
+  const [noteText, setNoteText] = useState(notes);
+  const [showIntervalTimer, setShowIntervalTimer] = useState(false);
+
+  const intervalSet = isRest ? null : parseIntervals(workout.details);
 
   const detailsCount = workout.details.length;
   const setsDone = Object.values(completedSets).filter(Boolean).length;
@@ -163,6 +169,43 @@ export function WorkoutCard({
         </div>
       )}
 
+      {/* Interval timer launch button */}
+      {intervalSet && (
+        <div style={{ marginTop: 12 }}>
+          <button
+            onClick={() => setShowIntervalTimer(true)}
+            className="w-full font-condensed font-bold uppercase tracking-widest transition-all duration-150"
+            style={{
+              background: 'rgba(107,140,74,0.12)',
+              border: `1px solid ${color}`,
+              borderRadius: 6,
+              padding: compact ? '10px' : '13px',
+              fontSize: 14,
+              color,
+              letterSpacing: '0.2em',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            START INTERVALS
+            <span
+              className="font-mono"
+              style={{ fontSize: 9, color: `${color}aa`, letterSpacing: '0.1em', fontWeight: 400 }}
+            >
+              {intervalSet.rounds}×{intervalSet.workSecs < 60
+                ? `${intervalSet.workSecs}s`
+                : `${intervalSet.workSecs / 60}min`}
+            </span>
+          </button>
+        </div>
+      )}
+
       {/* Notes */}
       <div style={{ marginTop: 10, borderTop: '1px solid #1c2018', paddingTop: 8 }}>
         <button
@@ -214,6 +257,19 @@ export function WorkoutCard({
           </div>
         )}
       </div>
+
+      {/* Fullscreen interval timer portal */}
+      {showIntervalTimer && intervalSet &&
+        createPortal(
+          <IntervalTimer
+            intervalSet={intervalSet}
+            workoutKey={key}
+            workoutLabel={workout.label}
+            onClose={() => setShowIntervalTimer(false)}
+            onMarkDone={() => onToggleDone(key, true)}
+          />,
+          document.body,
+        )}
     </div>
   );
 }
