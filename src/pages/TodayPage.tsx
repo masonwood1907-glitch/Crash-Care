@@ -70,7 +70,7 @@ export function TodayPage({
           MISSION<br />COMPLETE
         </div>
         <div className="font-mono" style={{ fontSize: 10, color: '#c8a84b', letterSpacing: '0.2em' }}>
-          14-WEEK PROGRAM FINISHED
+          9-WEEK PROGRAM FINISHED
         </div>
         <div className="font-sans" style={{ fontSize: 13, color: '#5a6055', lineHeight: 1.6 }}>
           {totalDone} sessions completed. Plebe Summer awaits.

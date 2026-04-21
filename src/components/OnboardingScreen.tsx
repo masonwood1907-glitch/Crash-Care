@@ -72,7 +72,7 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
           className="font-mono text-center"
           style={{ fontSize: 9, color: '#c8a84b', letterSpacing: '0.2em' }}
         >
-          14-WEEK PHYSICAL PREPARATION PLAN
+          9-WEEK PHYSICAL PREPARATION PLAN
           <br />
           USNA PE DEPARTMENT
         </div>
@@ -86,7 +86,7 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
             className="font-mono uppercase tracking-widest"
             style={{ fontSize: 9, color: '#6b7560', letterSpacing: '0.2em' }}
           >
-            WHEN DOES YOUR 14-WEEK PLAN START?
+            WHEN DOES YOUR 9-WEEK PLAN START?
           </div>
 
           <input

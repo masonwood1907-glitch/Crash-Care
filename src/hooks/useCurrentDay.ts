@@ -19,8 +19,8 @@ export function getCurrentDay(startDate: string | null): CurrentDayResult {
     return { week: null, day: null, isPastProgram: false, daysUntilStart: -diffDays };
   }
 
-  const isPastProgram = diffDays >= 14 * 7;
-  const week = Math.min(14, Math.floor(diffDays / 7) + 1);
+  const isPastProgram = diffDays >= 66;
+  const week = Math.min(10, Math.floor(diffDays / 7) + 1);
   const day = DAY_KEYS[today.getDay()];
 
   return { week, day, isPastProgram, daysUntilStart: 0 };
@@ -33,7 +33,7 @@ export function getWeekDayFromDate(date: Date, startDate: string): { week: numbe
   d.setHours(0, 0, 0, 0);
 
   const diff = Math.floor((d.getTime() - start.getTime()) / 86400000);
-  if (diff < 0 || diff >= 14 * 7) return null;
+  if (diff < 0 || diff >= 66) return null;
 
   const week = Math.floor(diff / 7) + 1;
   const day = DAY_KEYS[d.getDay()];

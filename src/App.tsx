@@ -38,7 +38,7 @@ export default function App() {
       const { week: cw, day: cd } = getCurrentDay(startDate);
       if (cw && cd) {
         const key = `w${cw}_${cd}`;
-        const isDone = (JSON.parse(localStorage.getItem('usna_tracker_v1') ?? '{}') as Record<string, { done?: boolean }>)[key]?.done;
+        const isDone = (JSON.parse(localStorage.getItem('usna_tracker_v2') ?? '{}') as Record<string, { done?: boolean }>)[key]?.done;
         const workout = BASE_WORKOUTS[cd as DayKey](cw);
         if (!isDone && workout.type !== 'rest') {
           new Notification('USNA Prep Tracker', {
@@ -123,7 +123,7 @@ export default function App() {
               className="font-mono"
               style={{ fontSize: 7, color: '#c8a84b', letterSpacing: '0.15em' }}
             >
-              14-WK PHYSICAL PREP PLAN
+              9-WK PHYSICAL PREP PLAN
             </div>
           </div>
         </div>

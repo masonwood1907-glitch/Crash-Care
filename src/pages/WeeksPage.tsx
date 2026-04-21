@@ -241,8 +241,8 @@ export function WeeksPage({
             ← WEEK {selectedWeek - 1}
           </button>
           <button
-            onClick={() => setSelectedWeek(Math.min(14, selectedWeek + 1))}
-            disabled={selectedWeek >= 14}
+            onClick={() => setSelectedWeek(Math.min(10, selectedWeek + 1))}
+            disabled={selectedWeek >= 10}
             className="font-mono uppercase tracking-widest"
             style={{
               flex: 1,
@@ -251,8 +251,8 @@ export function WeeksPage({
               borderRadius: 4,
               padding: '8px',
               fontSize: 9,
-              color: selectedWeek < 14 ? '#6b7560' : '#2a3025',
-              cursor: selectedWeek < 14 ? 'pointer' : 'not-allowed',
+              color: selectedWeek < 10 ? '#6b7560' : '#2a3025',
+              cursor: selectedWeek < 10 ? 'pointer' : 'not-allowed',
             }}
           >
             WEEK {selectedWeek + 1} →
@@ -347,12 +347,12 @@ export function WeeksPage({
           ALL WEEKS
         </div>
         <div className="font-mono" style={{ fontSize: 9, color: '#6b7560', letterSpacing: '0.15em' }}>
-          14-WEEK PLEBE SUMMER PREP
+          9-WEEK PLEBE SUMMER PREP
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5 px-4 pt-3">
-        {Array.from({ length: 14 }, (_, i) => i + 1).map((w) => {
+        {Array.from({ length: 10 }, (_, i) => i + 1).map((w) => {
           const { done, pct } = weekCompletion(log, w);
           const phase = PHASES[w];
           const isCurrentWeek = currentWeek === w;

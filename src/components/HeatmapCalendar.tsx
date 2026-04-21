@@ -39,7 +39,7 @@ export function HeatmapCalendar({
       <div style={{ minWidth: 280 }}>
         {/* Week column headers */}
         <div className="flex mb-1 pl-8">
-          {Array.from({ length: 14 }, (_, i) => i + 1).map((w) => (
+          {Array.from({ length: 10 }, (_, i) => i + 1).map((w) => (
             <button
               key={w}
               onClick={() => onSelectWeek?.(w)}
@@ -71,7 +71,7 @@ export function HeatmapCalendar({
             </div>
 
             {/* Week cells */}
-            {Array.from({ length: 14 }, (_, i) => i + 1).map((w) => {
+            {Array.from({ length: 10 }, (_, i) => i + 1).map((w) => {
               const workout = BASE_WORKOUTS[day](w);
               const logKey = `w${w}_${day}`;
               const isDone = log[logKey]?.done ?? false;

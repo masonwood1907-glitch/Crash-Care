@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { TrainingLog } from '../types';
 
-const STORAGE_KEY = 'usna_tracker_v1';
+const STORAGE_KEY = 'usna_tracker_v2';
 
 function loadFromStorage(): TrainingLog {
   try {
@@ -112,11 +112,11 @@ export function calculateStreak(
   let streak = 0;
   const cursor = new Date(today);
 
-  for (let i = 0; i < 14 * 7; i++) {
+  for (let i = 0; i < 66; i++) {
     const diff = Math.floor((cursor.getTime() - start.getTime()) / 86400000);
     if (diff < 0) break;
 
-    const week = Math.min(14, Math.floor(diff / 7) + 1);
+    const week = Math.min(10, Math.floor(diff / 7) + 1);
     const dayKey = days[cursor.getDay()];
     const workout = getWorkout(week, dayKey);
     const logKey = `w${week}_${dayKey}`;

@@ -44,7 +44,7 @@ export function OverviewPage({
     localStorage.getItem('usna_notif_enabled') === 'true',
   );
 
-  const totalWorkoutDays = 14 * 7;
+  const totalWorkoutDays = 66;
   const completedDays = Object.values(log).filter((e) => e.done).length;
   const overallPct = Math.round((completedDays / totalWorkoutDays) * 100);
 
@@ -170,12 +170,12 @@ export function OverviewPage({
 
           <div className="flex flex-col gap-2.5">
             {[
-              { phase: 'FOUNDATION', weeks: [1, 2] },
-              { phase: 'INTERVALS', weeks: [3, 4] },
-              { phase: 'VOLUME BUILD', weeks: [5, 6] },
-              { phase: 'CONSOLIDATION', weeks: [7, 8, 9] },
-              { phase: 'INTENSITY BUILD', weeks: [10, 11, 12] },
-              { phase: 'PEAK', weeks: [13, 14] },
+              { phase: 'INTERVALS', weeks: [1, 2] },
+              { phase: 'VOLUME BUILD', weeks: [3, 4] },
+              { phase: 'CONSOLIDATION', weeks: [5] },
+              { phase: 'INTENSITY BUILD', weeks: [6, 7] },
+              { phase: 'PEAK', weeks: [8, 9] },
+              { phase: 'ACTIVE RECOVERY', weeks: [10] },
             ].map(({ phase, weeks }) => {
               const totalDays = weeks.length * 7;
               const doneDays = weeks.reduce(
@@ -245,7 +245,7 @@ export function OverviewPage({
           </div>
 
           <div className="grid grid-cols-7 gap-1.5">
-            {Array.from({ length: 14 }, (_, i) => i + 1).map((w) => {
+            {Array.from({ length: 10 }, (_, i) => i + 1).map((w) => {
               const { done, pct } = weekCompletion(log, w);
               const isCurrentWeek = currentWeek === w;
 
